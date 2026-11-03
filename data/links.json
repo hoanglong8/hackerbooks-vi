@@ -1,0 +1,4 @@
+{
+  "_huong_dan": "Thêm link Google Drive cho sách theo Open Library work ID (cột id trong books.json). Chỉ thêm sách bạn có quyền chia sẻ: sách miễn phí/public domain, sách tác giả cho phép, hoặc tài liệu nội bộ. Ví dụ bên dưới.",
+  "OL_VI_DU_W": { "drive": "https://drive.google.com/file/d/XXXX/view", "note": "ví dụ — xóa dòng này" }
+}

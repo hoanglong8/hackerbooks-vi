@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sách Hacker — Những cuốn sách được cộng đồng Hacker News nhắc đến nhiều nhất</title>
+<meta name="description" content="Bản tiếng Việt của Hacker Books: hơn 15.000 cuốn sách được nhắc đến trong bình luận Hacker News 2007–2026, xếp hạng theo số người nhắc đến. Cập nhật hàng tuần.">
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/">📚 Sách Hacker <span>bản tiếng Việt</span></a>
+    <p class="lead">Những cuốn sách được cộng đồng <b>Hacker News</b> nhắc đến nhiều nhất (2007–2026), xếp hạng theo số người khác nhau nhắc tới.</p>
+    <p class="stats" id="stats">Đang tải dữ liệu…</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <nav class="tabs" id="tabs">
+    <button data-tab="all" class="on">Xếp hạng chung</button>
+    <button data-tab="rec">Được khuyên đọc nhiều</button>
+    <button data-tab="rising">Đang lên (nhắc gần đây)</button>
+    <button data-tab="new">Mới cập nhật</button>
+  </nav>
+
+  <div class="controls">
+    <input id="q" type="search" placeholder="Tìm theo tên sách, tác giả, tên tiếng Việt…" autocomplete="off">
+    <select id="decade">
+      <option value="">Mọi thời kỳ xuất bản</option>
+      <option value="0-1949">Trước 1950</option>
+      <option value="1950-1969">1950–1969</option>
+      <option value="1970-1989">1970–1989</option>
+      <option value="1990-1999">Thập niên 1990</option>
+      <option value="2000-2009">Thập niên 2000</option>
+      <option value="2010-2019">Thập niên 2010</option>
+      <option value="2020-2100">Từ 2020</option>
+    </select>
+  </div>
+  <div class="chips" id="chips"></div>
+
+  <p class="count" id="count"></p>
+  <ol class="list" id="list"></ol>
+  <div class="more"><button id="more">Xem thêm</button></div>
+</main>
+
+<footer class="wrap foot">
+  <p>Dữ liệu gốc: <a href="https://hackerbooks.org/" target="_blank" rel="noopener">hackerbooks.org</a> (tác giả roansh — không liên kết với Y Combinator/Hacker News). Thông tin sách và ảnh bìa từ <a href="https://openlibrary.org" target="_blank" rel="noopener">Open Library</a>. Bản tiếng Việt tự động cập nhật mỗi tuần.</p>
+  <p id="hist"></p>
+</footer>
+<script src="/app.js"></script>
+</body>
+</html>
