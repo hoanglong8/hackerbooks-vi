@@ -17,6 +17,7 @@ hackerbooks.org/data/hackerbooks.csv  ──(GitHub Actions, 02:17 thứ Hai gi�
 |---|---|
 | `scripts/crawl.mjs` | Tải CSV công khai, chuẩn hóa, ghi `public/data/books.json`, `meta.json`, `topics.json` |
 | `scripts/topics.mjs` | Từ điển Việt hóa 32 chủ đề |
+| `scripts/covers.mjs` | Lấy cover ID từ Open Library API, cache `data/covers.json`, 2.000 sách/lần (đổi bằng `COVERS_MAX`) |
 | `scripts/translate.mjs` | Dịch tên sách sang tiếng Việt (ưu tiên tên bản dịch đã xuất bản tại VN), có cache |
 | `data/state.json` | Ngày phát hiện từng sách → tab "Mới cập nhật" |
 | `data/titles_vi.json` | Cache tên tiếng Việt — có thể sửa tay |
@@ -26,7 +27,7 @@ hackerbooks.org/data/hackerbooks.csv  ──(GitHub Actions, 02:17 thứ Hai gi�
 ## Cấu hình một lần
 
 1. **Secret dịch tên sách (tùy chọn):** Settings → Secrets and variables → Actions → `ANTHROPIC_API_KEY`. Không có thì site vẫn chạy, chỉ thiếu tên tiếng Việt. Lần đầu dịch ~15.000 tên (giới hạn 3.000 tên/lần chạy, đổi bằng biến `TRANSLATE_MAX`).
-2. **Vercel:** vercel.com → Add New Project → Import repo này → Framework: Other → Deploy. `vercel.json` đã cấu hình sẵn thư mục `public`.
+2. **Vercel:** đã nối — project `hackerbooks-vi`, mỗi push lên `main` tự deploy production tại https://hackerbooks-vi.vercel.app. Lúc build Vercel cũng crawl lại CSV.
 
 ## Link Google Drive
 
