@@ -44,7 +44,7 @@ function filtered() {
 }
 
 function card(b, i) {
-  const cover = b.id.startsWith("OL") ? `https://covers.openlibrary.org/w/olid/${b.id}-M.jpg` : "";
+  const cover = b.cv ? `https://covers.openlibrary.org/b/id/${b.cv}-M.jpg` : "";
   const hn = `https://hn.algolia.com/?type=comment&query=${encodeURIComponent('"' + b.t + '"')}`;
   const tags = (b.tp || []).map((t) => `<span class="tag">${esc(TOPICS[t] || t)}</span>`).join("") + (b.s ? `<span class="tag new">Mới ${new Date(b.s).toLocaleDateString("vi-VN")}</span>` : "");
   return `<li class="book">

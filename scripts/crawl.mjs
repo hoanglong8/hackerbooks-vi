@@ -10,6 +10,7 @@ const CSV_URL = process.env.HB_CSV_URL || "https://hackerbooks.org/data/hackerbo
 const STATE = path.join(ROOT, "data/state.json");          // ol_id -> ngày phát hiện lần đầu
 const LINKS = path.join(ROOT, "data/links.json");          // ol_id -> {drive, note}: link Drive bổ sung thủ công
 const TITLES_VI = path.join(ROOT, "data/titles_vi.json");  // ol_id -> tên sách tiếng Việt
+const COVERS = path.join(ROOT, "data/covers.json");        // ol_id -> Open Library cover id
 const OUT = path.join(ROOT, "public/data/books.json");
 const META = path.join(ROOT, "public/data/meta.json");
 
@@ -64,6 +65,7 @@ if (rows.length < 100 && !process.argv.includes("--file")) throw new Error(`CSV 
 const state = readJSON(STATE, {});
 const links = readJSON(LINKS, {});
 const titlesVi = readJSON(TITLES_VI, {});
+const covers = readJSON(COVERS, {});
 const firstRun = Object.keys(state).length === 0;
 const get = (r, n) => (col(n) > -1 ? (r[col(n)] ?? "").trim() : "");
 
@@ -91,6 +93,7 @@ const books = rows.map((r, idx) => {
   };
   if (titlesVi[ol]) b.tv = titlesVi[ol];
   if (links[ol]?.drive) b.dr = links[ol].drive;
+  if (covers[ol]) b.cv = covers[ol];
   return b;
 }).filter((b) => b.t);
 

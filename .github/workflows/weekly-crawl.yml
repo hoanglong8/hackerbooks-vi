@@ -6,7 +6,7 @@ on:
   workflow_dispatch: {}     # cho phép bấm chạy tay trên tab Actions
   push:
     branches: [main]
-    paths: [scripts/**, data/links.json]
+    paths: [scripts/**, data/links.json, .github/workflows/**]
 
 permissions:
   contents: write
@@ -25,6 +25,8 @@ jobs:
           node-version: 22
       - name: Crawl hackerbooks.org
         run: node scripts/crawl.mjs
+      - name: Lấy ảnh bìa từ Open Library (có cache)
+        run: node scripts/covers.mjs
       - name: Việt hóa tên sách mới (nếu có ANTHROPIC_API_KEY)
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
