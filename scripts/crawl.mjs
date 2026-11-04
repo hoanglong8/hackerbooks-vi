@@ -46,7 +46,14 @@ async function loadCSV() {
   return res.text();
 }
 
-const text = await loadCSV();
+let text;
+try { text = await loadCSV(); }
+catch (e) {
+  // Không tải được nguồn: giữ nguyên dữ liệu đã có để site không bị trống
+  const old = readJSON(OUT, []);
+  if (old.length) { console.warn(`CẢNH BÁO: ${e.message} — giữ dữ liệu cũ (${old.length} sách).`); process.exit(0); }
+  throw e;
+}
 const rows = parseCSV(text.replace(/^﻿/, ""));
 const header = rows.shift().map((h) => h.trim().toLowerCase());
 const col = (name) => header.indexOf(name);
