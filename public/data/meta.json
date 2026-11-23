@@ -1,6 +1,11 @@
 {
   "history": [
     {
+      "date": "2026-11-23",
+      "total": 15737,
+      "added": 193
+    },
+    {
       "date": "2026-11-16",
       "total": 15702,
       "added": 0
@@ -16,8 +21,8 @@
       "added": 0
     }
   ],
-  "updated": "2026-11-16",
+  "updated": "2026-11-23",
   "source": "https://hackerbooks.org/data/hackerbooks.csv",
-  "total": 15702,
-  "mentions": 284801
+  "total": 15737,
+  "mentions": 285531
 }
